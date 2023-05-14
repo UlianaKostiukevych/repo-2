@@ -1,3 +1,7 @@
 node_modules
 1-getting-started
 2-advanced-examples
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+cypress.env.json
