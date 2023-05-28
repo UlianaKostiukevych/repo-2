@@ -22,15 +22,18 @@ describe("Demoqa test suite", () => {
         cy.get("#addNewRecordButton").click();
         cy.get("#firstName").type(randomFirstName);
         cy.get("#lastName").type(randomLastName);
-        cy.get("#userEmail").type(randomEmail);
         cy.get("#age").type(randomAge);
+        cy.get("#userEmail").type(randomEmail);
         cy.get("#salary").type(randomSalary);
         cy.get("#department").type(randomDepartment);
 
         cy.get("#submit").click();
-        cy.get(".rt-tbody").should("exist");
-
-        cy.get("rt-tr-group(3)").should("have.text", `${randomFirstName}`);
-    
+        cy.get(".rt-tbody [role=rowgroup]").eq(3).should("exist");
+        cy.get('.rt-tr-group:nth-child(4) .rt-td:nth-child(1)').should("have.text", `${randomFirstName}`);
+        cy.get('.rt-tr-group:nth-child(4) .rt-td:nth-child(2)').should("have.text", `${randomLastName}`);
+        cy.get('.rt-tr-group:nth-child(4) .rt-td:nth-child(3)').should("have.text", `${randomAge}`);
+        cy.get('.rt-tr-group:nth-child(4) .rt-td:nth-child(4)').should("have.text", `${randomEmail}`);
+        cy.get('.rt-tr-group:nth-child(4) .rt-td:nth-child(5)').should("have.text", `${randomSalary}`);
+        cy.get('.rt-tr-group:nth-child(4) .rt-td:nth-child(6)').should("have.text", `${randomDepartment}`);
     })
 })
