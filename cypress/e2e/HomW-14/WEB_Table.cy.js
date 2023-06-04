@@ -77,11 +77,39 @@ describe("Demoqa test suite - WEB Tables", () => {
         cy.get(".rt-tr-group:nth-child(4) .rt-td:nth-child(6)").should("have.text", `${randomDepartment_2}`);
     });
 
-        it.only("Delete user", () => {
+    it("Delete user", () => {
 
         cy.get(".action-buttons #delete-record-3").click();
         cy.get(".rt-tr-group:nth-child(3)").should("have.value", "");
-
-        })
     });
 
+    it.only("Search user", () => {
+        cy.get("#searchBox").click().type("Cierra")
+        cy.get(".rt-tr-group:nth-child(1) .rt-td:nth-child(1)").should("have.text", "Cierra").wait(2000);
+        cy.get("#searchBox").clear();
+        cy.get("#searchBox").click().type("Cantrell");
+        cy.get(".rt-tr-group:nth-child(1) .rt-td:nth-child(2)").should("have.text", "Cantrell").wait(2000);
+        cy.get("#searchBox").clear();
+        cy.get("#searchBox").click().type("29");
+        cy.get(".rt-tr-group:nth-child(1) .rt-td:nth-child(3)").should("have.text", "29").wait(2000);
+        cy.get("#searchBox").clear();
+        cy.get("#searchBox").click().type("cierra@example.com");
+        cy.get(".rt-tr-group:nth-child(1) .rt-td:nth-child(4").should("have.text", "cierra@example.com").wait(2000);
+        cy.get("#searchBox").clear();
+        cy.get("#searchBox").click().type("12000");
+        cy.get(".rt-tr-group:nth-child(1) .rt-td:nth-child(5)").should("have.text", "12000").wait(2000);
+        cy.get("#searchBox").clear();
+        cy.get("#searchBox").click().type("Legal");
+        cy.get(".rt-tr-group:nth-child(1) .rt-td:nth-child(6)").should("have.text", "Legal").wait(2000);
+    });
+
+    it.only("Sort columns", () => {
+
+});
+ 
+    
+    
+
+
+
+   

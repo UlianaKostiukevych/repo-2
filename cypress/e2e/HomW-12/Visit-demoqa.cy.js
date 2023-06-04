@@ -25,3 +25,50 @@ describe("Demoqa test suite", () => {
         cy.get("p#permanentAddress").should("contain.text", `Permananet Address :${randomPermamentAddress}`)  
     })
 })
+
+
+
+
+/*cy.get('.rt-tbody').find(".rt-tr-group").its('length').then((length) => {
+    lenBefore = length;
+    cy.log(String(length + 1))
+
+    cy.get('.rt-tbody').find(".rt-tr-group").its('length').to.deep.equal(lenAfter - 1);*/
+
+
+//cy.get('.rt-tbody').find(".rt-tr-group").its('length').then((length) => {
+                //cy.log('Initial table Length is: ' + lenBefore);
+    
+                //expect(lenBefore).to.equal(lenBefore + 1);
+    
+            //cy.get(".action-buttons #delete-record-4").wait(3000).click();
+    
+    
+            /*cy.get('.rt-tbody').find(".rt-tr-group").its('length').then((lenAfter) => {
+                lenAfter = lenBefore - 1;
+    
+                cy.log('After table Length is: ' + lenAfter);
+                expect(lenBefore).to.equal(lenAfter - 1);*/
+   
+
+/*it.only('should verify table data is sorted ascending', () => {
+    cy.get("[role=columnheader]").eq(0).click()
+
+    cy.get(".rt-tbody .rt-tr-group").each(($row, rowIndex) => {
+
+        cy.wrap($row).find(".rt-tr-group:nth-child() .rt-td:nth-child(1)").each(($cell, cellIndex) => {
+            cy.wrap($cell).contains(tableDaataSortAsc[rowIndex][cellIndex]);
+        })
+
+    })
+      });*/
+
+      cy.get(".rt-tbody [role=rowgroup]")
+      .find(".rt-td")
+      .then((rows) => {
+          rows.toArray().forEach((element) => {
+          if (document.getElementById("dated").innerHTML.should('be.not.empty')) {
+          //rows.index(element) will give you the row index
+  
+             cy.log(rows.index(element));
+          }
