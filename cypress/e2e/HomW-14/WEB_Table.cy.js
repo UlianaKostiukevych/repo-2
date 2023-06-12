@@ -1,4 +1,4 @@
-/*import { faker } from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
 const randomFirstName = faker.name.firstName(); 
 const randomLastName = faker.name.lastName(); 
 const randomEmail = faker.internet.email(); 
@@ -27,7 +27,7 @@ const randomDepartment_2 = faker.name.jobArea();
 
 describe("Demoqa test suite - WEB Tables", () => {
     beforeEach(() => {
-        cy.visit("https://demoqa.com/webtables");
+        cy.visit("webtables");
     });
 
     it("Create and edit new user", () => {
@@ -99,72 +99,20 @@ describe("Demoqa test suite - WEB Tables", () => {
         cy.get(".rt-tr-group:nth-child(1) .rt-td:nth-child(6)").should("have.text", "Legal").wait(2000);
     });
 
-    it.only("Sort columns", () => {
-
-});*/
-
-describe("Demoqa test suite - WEB Tables", () => {
-    beforeEach(() => {
-        cy.visit("https://demoqa.com/webtables");
-    });
-
-    it('should verify table data is sorted ascending', () => {
-        //cy.get("[role=columnheader]").eq(0).click();
-        /*cy.get(".rt-tr-group .rt-td:nth-child(1)").then(items => {
-            let unsortedFirstName = items.map((index, html) => Cypress.$(html).text()).get();
-            let sortedFirstName = unsortedFirstName.slice().sort();
-            expect(unsortedFirstName).to.deep.equal(sortedFirstName);
-            cy.wait(4000)
-
-        cy.get("[role=columnheader]").eq(1).click();
-        cy.get(".rt-tr-group .rt-td:nth-child(2)").then(items => {
-            let unsortedLastName = items.map((index, html) => Cypress.$(html).text()).get();
-            let sortedLastName = unsortedLastName.slice().sort();
-            expect(unsortedLastName).to.deep.equal(sortedLastName);
-            cy.wait(4000)
-
-        cy.get("[role=columnheader]").eq(2).click();
-        cy.get(".rt-tr-group .rt-td:nth-child(3)").then(items => {
-            let unsortedAge = items.map((index, html) => Cypress.$(html).text()).get();
-            let sortedAge = unsortedAge.slice().sort();
-            expect(unsortedAge).to.deep.equal(sortedAge);
-            cy.wait(4000)
-
-        cy.get("[role=columnheader]").eq(3).click();
-        cy.get(".rt-tr-group .rt-td:nth-child(4)").then(items => {
-            let unsortedEmail = items.map((index, html) => Cypress.$(html).text()).get();
-            let sortedEmail = unsortedEmail.slice().sort();
-            expect(unsortedEmail).to.deep.equal(sortedEmail);
-            cy.wait(4000)*/
-
-        /*cy.get("[role=columnheader]").eq(4).click();
-        cy.get(".rt-tbody [role='row'] > div:nth-child(5)").then(items => {
-            let unsortedSalary = items.map((index, html) => Cypress.$(html).text()).get();
-            let sortedSalary = unsortedSalary.slice().sort();
-            expect(unsortedSalary).to.deep.equal(sortedSalary);
-            cy.wait(4000)*/
-
-
-           cy.get(".rt-tbody [role='row'] > div:nth-child(5)").then((salaryValues) => {
-                function compareNumbers(a, b) {
-                  return a - b;}
-                let salaryArray = [...salaryValues].map(el => el.textContent).filter(Number);
-                let sortedSalaryArray = [...salaryArray].sort(compareNumbers);
-                expect(salaryArray).to.deep.equal(sortedSalaryArray);
-                })
-                });
-
-        /*cy.get("[role=columnheader]").eq(5).click();
-        cy.get(".rt-tr-group .rt-td:nth-child(6)").then(items => {
-            let unsortedDepartment = items.map((index, html) => Cypress.$(html).text()).get();
-            let sortedDepartment = unsortedDepartment.slice().sort();
-            expect(unsortedDepartment).to.deep.equal(sortedDepartment);
-            cy.wait(4000)  */
+    describe("Demoqa test suite - WEB Tables", () => {
+        beforeEach(() => {
+            cy.visit("webtables");
         });
-    //});
-//});
-//});
-//});
-//});
-//});
-//});
+    
+        it('should verify table data is sorted ascending', () => {
+            cy.get("[role=columnheader]").eq(0).click();
+            cy.get(".rt-tr-group .rt-td:nth-child(1)").then(items => {
+                let unsortedFirstName = items.map((index, html) => Cypress.$(html).text()).get();
+                unsortedFirstName = unsortedFirstName.filter((el) => el != "\u00a0");
+                let sortedFirstName = unsortedFirstName.slice().sort();
+                expect(unsortedFirstName).to.deep.equal(sortedFirstName);
+                cy.wait(4000)
+            });
+            });
+        });
+    });
