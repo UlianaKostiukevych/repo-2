@@ -36,8 +36,8 @@ describe("Demoqa test suite - WEB Tables", () => {
         cy.get("#addNewRecordButton").click();
         cy.get("#firstName").type(randomFirstName);
         cy.get("#lastName").type(randomLastName);
-        cy.get("#age").type(randomAge);
         cy.get("#userEmail").type(randomEmail);
+        cy.get("#age").type(randomAge);
         cy.get("#salary").type(randomSalary);
         cy.get("#department").type(randomDepartment);
 
@@ -55,10 +55,10 @@ describe("Demoqa test suite - WEB Tables", () => {
         cy.get("#firstName").type(randomFirstName_2);
         cy.get("#lastName").clear();
         cy.get("#lastName").type(randomLastName_2);
-        cy.get("#age").clear();
-        cy.get("#age").type(randomAge_2);
         cy.get("#userEmail").clear();
         cy.get("#userEmail").type(randomEmail_2);
+        cy.get("#age").clear();
+        cy.get("#age").type(randomAge_2);
         cy.get("#salary").clear();
         cy.get("#salary").type(randomSalary_2);
         cy.get("#department").clear();
@@ -106,7 +106,7 @@ describe("Demoqa test suite - WEB Tables", () => {
             unsortedFirstName = unsortedFirstName.filter((el) => el != "\u00a0");
             let sortedFirstName = unsortedFirstName.slice().sort();
             expect(unsortedFirstName).to.deep.equal(sortedFirstName);
-            cy.wait(3000);
+            cy.wait(2000);
 
             cy.get("[role=columnheader]").eq(1).click();
             cy.get(".rt-tr-group .rt-td:nth-child(2)").then(items => {
@@ -114,7 +114,7 @@ describe("Demoqa test suite - WEB Tables", () => {
                 unsortedLastName = unsortedLastName.filter((el) => el != "\u00a0");
                 let sortedLastName = unsortedLastName.slice().sort();
                 expect(unsortedLastName).to.deep.equal(sortedLastName);
-                cy.wait(3000);
+                cy.wait(2000);
 
                 cy.get("[role=columnheader]").eq(2).click();
                 cy.get(".rt-tr-group .rt-td:nth-child(3)").then(items => {
@@ -125,7 +125,7 @@ describe("Demoqa test suite - WEB Tables", () => {
                     unsortedAge = unsortedAge.filter((el) => el != "\u00a0");
                     let sortedAge = unsortedAge.sort(compareAge);
                     expect(unsortedAge).to.deep.equal(sortedAge);
-                    cy.wait(3000);
+                    cy.wait(2000);
 
                     cy.get("[role=columnheader]").eq(3).click();
                     cy.get(".rt-tr-group .rt-td:nth-child(4)").then(items => {
@@ -133,7 +133,7 @@ describe("Demoqa test suite - WEB Tables", () => {
                         unsortedEmail = unsortedEmail.filter((el) => el != "\u00a0");
                         let sortedEmail = unsortedEmail.slice().sort();
                         expect(unsortedEmail).to.deep.equal(sortedEmail);
-                        cy.wait(3000);
+                        cy.wait(2000);
 
                         cy.get("[role=columnheader]").eq(4).click();
                         cy.get(".rt-tbody [role='row'] > div:nth-child(5)").then(items => {
@@ -144,7 +144,7 @@ describe("Demoqa test suite - WEB Tables", () => {
                             unsortedSalary = unsortedSalary.filter((el) => el != "\u00a0");
                             let sortedSalary = unsortedSalary.sort(compareSalary);
                             expect(unsortedSalary).to.deep.equal(sortedSalary);
-                            cy.wait(3000);
+                            cy.wait(2000);
 
                             cy.get("[role=columnheader]").eq(5).click();
                             cy.get(".rt-tr-group .rt-td:nth-child(6)").then(items => {
@@ -152,7 +152,7 @@ describe("Demoqa test suite - WEB Tables", () => {
                                 unsortedDepartment = unsortedDepartment.filter((el) => el != "\u00a0");
                                 let sortedDepartment = unsortedDepartment.slice().sort();
                                 expect(unsortedDepartment).to.deep.equal(sortedDepartment);
-                                cy.wait(3000);
+                                cy.wait(2000);
                             });
                         });
                     });
@@ -168,7 +168,7 @@ describe("Demoqa test suite - WEB Tables", () => {
             unsortedFirstName = unsortedFirstName.filter((el) => el != "\u00a0");
             let sortedFirstName = unsortedFirstName.slice().sort().reverse();
             expect(unsortedFirstName).to.deep.equal(sortedFirstName);
-            cy.wait(3000);
+            cy.wait(2000);
 
             cy.get("[role=columnheader]").eq(1).dblclick();
             cy.get(".rt-tr-group .rt-td:nth-child(2)").then(items => {
@@ -176,7 +176,7 @@ describe("Demoqa test suite - WEB Tables", () => {
                 unsortedLastName = unsortedLastName.filter((el) => el != "\u00a0");
                 let sortedLastName = unsortedLastName.slice().sort().reverse();
                 expect(unsortedLastName).to.deep.equal(sortedLastName);
-                cy.wait(3000);
+                cy.wait(2000);
 
                 cy.get("[role=columnheader]").eq(2).dblclick();
                 cy.get(".rt-tr-group .rt-td:nth-child(3)").then(items => {
@@ -187,7 +187,7 @@ describe("Demoqa test suite - WEB Tables", () => {
                     unsortedAge = unsortedAge.filter((el) => el != "\u00a0");
                     let sortedAge = unsortedAge.sort(compareAge);
                     expect(unsortedAge).to.deep.equal(sortedAge);
-                    cy.wait(3000);
+                    cy.wait(2000);
 
                     cy.get("[role=columnheader]").eq(3).dblclick();
                     cy.get(".rt-tr-group .rt-td:nth-child(4)").then(items => {
@@ -195,7 +195,7 @@ describe("Demoqa test suite - WEB Tables", () => {
                         unsortedEmail = unsortedEmail.filter((el) => el != "\u00a0");
                         let sortedEmail = unsortedEmail.slice().sort().reverse();
                         expect(unsortedEmail).to.deep.equal(sortedEmail);
-                        cy.wait(3000);
+                        cy.wait(2000);
 
                         cy.get("[role=columnheader]").eq(4).dblclick();
                         cy.get(".rt-tbody [role='row'] > div:nth-child(5)").then(items => {
@@ -206,7 +206,7 @@ describe("Demoqa test suite - WEB Tables", () => {
                             unsortedSalary = unsortedSalary.filter((el) => el != "\u00a0");
                             let sortedSalary = unsortedSalary.sort(compareSalary);
                             expect(unsortedSalary).to.deep.equal(sortedSalary);
-                            cy.wait(3000);
+                            cy.wait(2000);
 
                             cy.get("[role=columnheader]").eq(5).dblclick();
                             cy.get(".rt-tr-group .rt-td:nth-child(6)").then(items => {
@@ -214,7 +214,7 @@ describe("Demoqa test suite - WEB Tables", () => {
                                 unsortedDepartment = unsortedDepartment.filter((el) => el != "\u00a0");
                                 let sortedDepartment = unsortedDepartment.slice().sort().reverse();
                                 expect(unsortedDepartment).to.deep.equal(sortedDepartment);
-                                cy.wait(3000);
+                                cy.wait(2000);
                             });
                         });
                     });
