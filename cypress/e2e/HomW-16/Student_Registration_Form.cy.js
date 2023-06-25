@@ -1,5 +1,4 @@
 import { faker } from "@faker-js/faker";
-import { random } from "cypress/types/lodash";
 const randomFirstName = faker.name.firstName();
 const randomLastName = faker.name.lastName();
 const randomEmail = faker.internet.email();
@@ -29,7 +28,8 @@ describe("Demoqa test suite - WEB Tables", () => {
         cy.get("#firstName").type(randomFirstName);
         cy.get("#lastName").type(randomLastName);
         cy.get("#userEmail").type(randomEmail);
-        cy.get(".custom-radio").should("have.length.gt", "3");
+        cy.get(".col-md-9 col-sm-12, .custom-control custom-radio custom-control-inline:nth-child(1)").check();
+    })
         /*cy.get("#age").type(randomAge);
         cy.get("#salary").type(randomSalary);
         cy.get("#department").type(randomDepartment);*/
@@ -43,4 +43,4 @@ describe("Demoqa test suite - WEB Tables", () => {
         cy.get(".rt-tr-group:nth-child(4) .rt-td:nth-child(6)").should("have.text", `${randomDepartment}`);*/
 
     });
-});
+//});
