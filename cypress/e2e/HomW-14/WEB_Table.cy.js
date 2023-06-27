@@ -75,8 +75,7 @@ describe("Demoqa test suite - WEB Tables", () => {
         cy.get(".rt-tr-group:nth-child(4) .rt-td:nth-child(6)").should("have.text", `${randomDepartment_2}`);
     });
 
-    //How to check deleted row ?
-    it.only("Delete user", () => {
+    it("Delete user", () => {
 
         cy.get("#addNewRecordButton").click();
         cy.get("#firstName").type(randomFirstName);
@@ -86,14 +85,10 @@ describe("Demoqa test suite - WEB Tables", () => {
         cy.get("#salary").type(randomSalary);
         cy.get("#department").type(randomDepartment);
         cy.get("#submit").click();
-
         cy.get(".action-buttons #delete-record-4").click();
-        //cy.get(".rt-tr-group:nth-child(4)").should("have.value", "");
-        //cy.get(".rt-tr-group:nth-child(4)").should("have.value", " ");
-        //cy.get(".rt-tr-group:nth-child(4) .rt-td:nth-child(1)").should("have.value", " ");
-
-        //cy.get(".rt-tr-group:nth-child(4) .rt-td:nth-child(1)").should("be.empty");
-        //cy.get(".rt-tr-group:nth-child(4)").should("not.be.empty");
+        cy.get(".rt-tr-group:nth-child(4) .rt-td").each((cell) => {
+            expect(cell).to.have.text("\u00a0");
+        });
     });
 
     it("Search user", () => {
@@ -127,7 +122,7 @@ describe("Demoqa test suite - WEB Tables", () => {
             unsortedFirstName = unsortedFirstName.filter((el) => el != "\u00a0");
             let sortedFirstName = unsortedFirstName.slice().sort();
             expect(unsortedFirstName).to.deep.equal(sortedFirstName);
-        
+
             cy.get("[role=columnheader]").eq(1).click();
             cy.get(".rt-tr-group .rt-td:nth-child(2)").then(items => {
                 let unsortedLastName = items.map((html) => Cypress.$(html).text()).get();
