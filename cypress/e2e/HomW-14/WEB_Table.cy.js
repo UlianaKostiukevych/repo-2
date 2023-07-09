@@ -109,7 +109,7 @@ describe("Demoqa test suite - WEB Tables", () => {
         cy.get(".rt-tr-group:nth-child(1) .rt-td:nth-child(3)").should("have.text", `${randomAge}`);
         cy.get("#searchBox").clear().type(randomEmail);
         cy.get(".rt-tr-group:nth-child(1) .rt-td:nth-child(4)").should("have.text", `${randomEmail}`);
-        cy.get("#searchBox").clear().type(randomAge);
+        cy.get("#searchBox").clear().type(randomSalary);
         cy.get(".rt-tr-group:nth-child(1) .rt-td:nth-child(5)").should("have.text", `${randomSalary}`);
         cy.get("#searchBox").clear().type(randomDepartment);
         cy.get(".rt-tr-group:nth-child(1) .rt-td:nth-child(6)").should("have.text", `${randomDepartment}`);
@@ -118,14 +118,14 @@ describe("Demoqa test suite - WEB Tables", () => {
     it("Verify table data is sorted ascending", () => {
         cy.get("[role=columnheader]").eq(0).click();
         cy.get(".rt-tr-group .rt-td:nth-child(1)").then(items => {
-            let unsortedFirstName = items.map((html) => Cypress.$(html).text()).get();
+            let unsortedFirstName = items.map((_, html) => Cypress.$(html).text()).get();
             unsortedFirstName = unsortedFirstName.filter((el) => el != "\u00a0");
             let sortedFirstName = unsortedFirstName.slice().sort();
             expect(unsortedFirstName).to.deep.equal(sortedFirstName);
 
             cy.get("[role=columnheader]").eq(1).click();
             cy.get(".rt-tr-group .rt-td:nth-child(2)").then(items => {
-                let unsortedLastName = items.map((html) => Cypress.$(html).text()).get();
+                let unsortedLastName = items.map((_, html) => Cypress.$(html).text()).get();
                 unsortedLastName = unsortedLastName.filter((el) => el != "\u00a0");
                 let sortedLastName = unsortedLastName.slice().sort();
                 expect(unsortedLastName).to.deep.equal(sortedLastName);
@@ -135,14 +135,14 @@ describe("Demoqa test suite - WEB Tables", () => {
                     function compareAge(a, b) {
                         return a - b;
                     };
-                    let unsortedAge = items.map((html) => Cypress.$(html).text()).get();
+                    let unsortedAge = items.map((_, html) => Cypress.$(html).text()).get();
                     unsortedAge = unsortedAge.filter((el) => el != "\u00a0");
                     let sortedAge = unsortedAge.sort(compareAge);
                     expect(unsortedAge).to.deep.equal(sortedAge);
 
                     cy.get("[role=columnheader]").eq(3).click();
                     cy.get(".rt-tr-group .rt-td:nth-child(4)").then(items => {
-                        let unsortedEmail = items.map((html) => Cypress.$(html).text()).get();
+                        let unsortedEmail = items.map((_, html) => Cypress.$(html).text()).get();
                         unsortedEmail = unsortedEmail.filter((el) => el != "\u00a0");
                         let sortedEmail = unsortedEmail.slice().sort();
                         expect(unsortedEmail).to.deep.equal(sortedEmail);
@@ -152,14 +152,14 @@ describe("Demoqa test suite - WEB Tables", () => {
                             function compareSalary(a, b) {
                                 return a - b;
                             };
-                            let unsortedSalary = items.map((html) => Cypress.$(html).text()).get();
+                            let unsortedSalary = items.map((_, html) => Cypress.$(html).text()).get();
                             unsortedSalary = unsortedSalary.filter((el) => el != "\u00a0");
                             let sortedSalary = unsortedSalary.sort(compareSalary);
                             expect(unsortedSalary).to.deep.equal(sortedSalary);
 
                             cy.get("[role=columnheader]").eq(5).click();
                             cy.get(".rt-tr-group .rt-td:nth-child(6)").then(items => {
-                                let unsortedDepartment = items.map((html) => Cypress.$(html).text()).get();
+                                let unsortedDepartment = items.map((_, html) => Cypress.$(html).text()).get();
                                 unsortedDepartment = unsortedDepartment.filter((el) => el != "\u00a0");
                                 let sortedDepartment = unsortedDepartment.slice().sort();
                                 expect(unsortedDepartment).to.deep.equal(sortedDepartment);
@@ -174,14 +174,14 @@ describe("Demoqa test suite - WEB Tables", () => {
     it("Verify table data is sorted descending", () => {
         cy.get("[role=columnheader]").eq(0).dblclick();
         cy.get(".rt-tr-group .rt-td:nth-child(1)").then(items => {
-            let unsortedFirstName = items.map((html) => Cypress.$(html).text()).get();
+            let unsortedFirstName = items.map((_, html) => Cypress.$(html).text()).get();
             unsortedFirstName = unsortedFirstName.filter((el) => el != "\u00a0");
             let sortedFirstName = unsortedFirstName.slice().sort().reverse();
             expect(unsortedFirstName).to.deep.equal(sortedFirstName);
 
             cy.get("[role=columnheader]").eq(1).dblclick();
             cy.get(".rt-tr-group .rt-td:nth-child(2)").then(items => {
-                let unsortedLastName = items.map((html) => Cypress.$(html).text()).get();
+                let unsortedLastName = items.map((_, html) => Cypress.$(html).text()).get();
                 unsortedLastName = unsortedLastName.filter((el) => el != "\u00a0");
                 let sortedLastName = unsortedLastName.slice().sort().reverse();
                 expect(unsortedLastName).to.deep.equal(sortedLastName);
@@ -191,14 +191,14 @@ describe("Demoqa test suite - WEB Tables", () => {
                     function compareAge(a, b) {
                         return b - a;
                     };
-                    let unsortedAge = items.map((html) => Cypress.$(html).text()).get();
+                    let unsortedAge = items.map((_, html) => Cypress.$(html).text()).get();
                     unsortedAge = unsortedAge.filter((el) => el != "\u00a0");
                     let sortedAge = unsortedAge.sort(compareAge);
                     expect(unsortedAge).to.deep.equal(sortedAge);
 
                     cy.get("[role=columnheader]").eq(3).dblclick();
                     cy.get(".rt-tr-group .rt-td:nth-child(4)").then(items => {
-                        let unsortedEmail = items.map((html) => Cypress.$(html).text()).get();
+                        let unsortedEmail = items.map((_, html) => Cypress.$(html).text()).get();
                         unsortedEmail = unsortedEmail.filter((el) => el != "\u00a0");
                         let sortedEmail = unsortedEmail.slice().sort().reverse();
                         expect(unsortedEmail).to.deep.equal(sortedEmail);
@@ -208,14 +208,14 @@ describe("Demoqa test suite - WEB Tables", () => {
                             function compareSalary(a, b) {
                                 return b - a;
                             };
-                            let unsortedSalary = items.map((html) => Cypress.$(html).text()).get();
+                            let unsortedSalary = items.map((_, html) => Cypress.$(html).text()).get();
                             unsortedSalary = unsortedSalary.filter((el) => el != "\u00a0");
                             let sortedSalary = unsortedSalary.sort(compareSalary);
                             expect(unsortedSalary).to.deep.equal(sortedSalary);
 
                             cy.get("[role=columnheader]").eq(5).dblclick();
                             cy.get(".rt-tr-group .rt-td:nth-child(6)").then(items => {
-                                let unsortedDepartment = items.map((html) => Cypress.$(html).text()).get();
+                                let unsortedDepartment = items.map((_, html) => Cypress.$(html).text()).get();
                                 unsortedDepartment = unsortedDepartment.filter((el) => el != "\u00a0");
                                 let sortedDepartment = unsortedDepartment.slice().sort().reverse();
                                 expect(unsortedDepartment).to.deep.equal(sortedDepartment);
