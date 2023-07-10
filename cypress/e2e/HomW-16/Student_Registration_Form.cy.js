@@ -1,14 +1,15 @@
 import { faker } from "@faker-js/faker";
+import dayjs from "dayjs";
 const randomFirstName = faker.person.firstName();
 const randomLastName = faker.person.lastName();
 const randomUserGender = { id: "1", name: "Male" };
 const randomUserEmail = faker.internet.email();
 const randomMobileNumber = faker.phone.number("097#######");
-const randomDateOfBirth = faker.date.between({ from: "1950-01-01T00:00:00.000Z", to: "now" }).toLocaleDateString('en-US');
+const randomDateOfBirth = dayjs(faker.date.between({ from: "01-01-1950", to: "now" }))
+    .format("DD MMMM,YYYY");
 const randomUserSubject = "Maths";
 const randomUserHobby_1 = { id: "1", name: "Sports" };
 const randomUserHobby_3 = { id: "3", name: "Music" };
-
 const randomUserFile = {
     file: "cypress/fixtures/test.jpg",
     name: "test.jpg",
@@ -29,7 +30,7 @@ describe("Demoqa test suite - Student Registration Form", () => {
         cy.get("#userEmail").type(randomUserEmail);
         cy.get(`#gender-radio-${randomUserGender.id}`).check({ force: true }); //need to make it random
         cy.get("#userNumber").type(randomMobileNumber);
-        cy.get("#dateOfBirthInput").type('{selectall}')
+        cy.get("#dateOfBirthInput").type('{selectall}') //need to make it random
             .type(randomDateOfBirth)
             .type("{enter}");
         cy.get("#subjectsInput").type(randomUserSubject) //need to make it random
@@ -49,7 +50,7 @@ describe("Demoqa test suite - Student Registration Form", () => {
             .and("contain", randomUserEmail)
             .and("contain", randomUserGender.name)
             .and("contain", randomMobileNumber)
-            //.and("contain", randomDateOfBirth)
+            .and("contain", randomDateOfBirth)
             .and("contain", randomUserSubject)
             .and("contain", randomUserHobby_1.name)
             .and("contain", randomUserHobby_3.name)
