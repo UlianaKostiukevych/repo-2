@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
-const randomName = faker.name.fullName(); 
-const randomEmail = faker.internet.email(); 
+const randomName = faker.name.fullName(); // Rowan Nikolaus
+const randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
 const randomCurrentAddress = faker.address.streetAddress();
 const randomPermamentAddress = faker.address.streetAddress();
 
@@ -24,5 +24,5 @@ describe("Demoqa test suite", () => {
         cy.get("p#currentAddress").should("contain.text", `Current Address :${randomCurrentAddress}`);
         cy.get("p#permanentAddress").should("contain.text", `Permananet Address :${randomPermamentAddress}`);
 
-    });
-});
+    })
+})
