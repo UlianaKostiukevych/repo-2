@@ -226,4 +226,4 @@ describe("Demoqa test suite - WEB Tables", () => {
             });
         });
     });
-}); 
+});
