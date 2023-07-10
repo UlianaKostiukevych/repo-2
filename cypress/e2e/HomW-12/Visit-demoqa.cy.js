@@ -5,7 +5,7 @@ const randomCurrentAddress = faker.address.streetAddress();
 const randomPermamentAddress = faker.address.streetAddress();
 
 
-describe("Demoqa test suite", () => {
+describe("Demowa test suite - Text box", () => {
     beforeEach(() => {
         cy.visit(Cypress.env("text_box_url"));
     });
