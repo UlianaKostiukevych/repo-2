@@ -37,7 +37,7 @@ describe("Demoqa test suite - Student Registration Form", () => {
             .type("{enter}");
         cy.get(`#hobbies-checkbox-${randomUserHobby_1.id}`).check({ force: true }); //need to make it random
         cy.get(`#hobbies-checkbox-${randomUserHobby_3.id}`).check({ force: true }); //need to make it random
-        cy.get("#uploadPicture").selectFile(randomUserFile.file);   //need to make it random
+        cy.get("#uploadPicture").selectFile(randomUserFile.file);  //need to make it random
         cy.get("#currentAddress").type(randomCurrentAddress);
         cy.get(".css-1g6gooi #react-select-3-input").click({ force: true }).type(randomStateName) //need to make it random
             .type("{enter}");
