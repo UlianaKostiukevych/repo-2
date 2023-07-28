@@ -1,5 +1,5 @@
 {
-  "name": "homw-12",
+  "name": "homw",
   "version": "1.0.0",
   "description": "Test task - Cypress first steps",
   "main": "index.js",
@@ -16,6 +16,20 @@
     "mocha": "^10.2.0"
   },
   "devDependencies": {
-    "@faker-js/faker": "^8.0.2"
+    "@faker-js/faker": "^8.0.2",
+    "@typescript-eslint/eslint-plugin": "^6.2.0",
+    "@typescript-eslint/parser": "^6.2.0",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^8.9.0",
+    "eslint-plugin-chai-friendly": "^0.7.2",
+    "eslint-plugin-cypress": "^2.13.3",
+    "eslint-plugin-extra-rules": "^0.0.0-development",
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "prettier": "3.0.0",
+    "typescript": "^5.1.6",
+    "typescript-eslint-parser": "^22.0.0"
   }
 }

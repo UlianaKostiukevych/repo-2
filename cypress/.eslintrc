@@ -1,0 +1,53 @@
+{
+  "plugins": ["cypress", "extra-rules", "import", "prettier", "@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:cypress/recommended",
+    "plugin:chai-friendly/recommended",
+    "prettier",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "root": true,
+  "ignorePatterns": [],
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "warn",
+    "sort-imports": "off",
+    "no-use-before-define": "off",
+    "no-unused-expressions": "off",
+    "no-unused-vars": "off",
+    "cypress/unsafe-to-chain-command": "off",
+    "cypress/no-unnecessary-waiting": "off",
+    "import/order": [
+      "error",
+      {
+        "pathGroups": [
+          {
+            "pattern": "@garantme/**",
+            "group": "external",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto",
+        "parser": "flow"
+      }   
+    ]
+  },
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "parser": "@typescript-eslint/parser"
+  }
+}
