@@ -1,8 +1,8 @@
-
 module.exports = {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "node": true //test
     },
     "extends": "eslint:recommended",
     "overrides": [
@@ -19,12 +19,9 @@ module.exports = {
         }
     ],
     "parserOptions": {
-        //"project": "tsconfig.json",
-        //"tsconfigRootDir": "__dirname",
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
     "rules": {
-    },
+    }
     };
-
