@@ -5,8 +5,9 @@ const randomLastName = faker.person.lastName();
 const randomUserGender = { id: "1", name: "Male" };
 const randomUserEmail = faker.internet.email();
 const randomMobileNumber = faker.phone.number("097#######");
-const randomDateOfBirth = dayjs(faker.date.between({ from: "01-01-1950", to: "now" }))
-    .format("DD MMMM,YYYY");
+const randomDateOfBirth = dayjs(
+  faker.date.between({ from: "01-01-1950", to: "now" }),
+).format("DD MMMM,YYYY");
 const randomUserSubject = "Maths";
 const randomUserHobby_1 = { id: "1", name: "Sports" };
 const randomUserHobby_3 = { id: "3", name: "Music" };
