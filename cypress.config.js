@@ -8,7 +8,7 @@ module.exports = defineConfig({
     pageLoadTimeout: 60000,
     requestTimeout: 5000,
     responsetTimeout: 5000,
-    viewportHeight: 660, 
+    viewportHeight: 660,
     viewportWidth: 1000,
     specPattern: "cypress/e2e/**/*.{js, jsx, ts, tsx}",
     excludeSpecPattern: "cypress/e2e/**/*.cy.{js, jsx, ts, tsx}",
@@ -16,9 +16,9 @@ module.exports = defineConfig({
     setupNodeEvents() {
       // implement node event listeners here
     },
-},
-env: {
-  API_BASE_URL: "https://reqres.in",
-  BOOKER_API_URL: "https://restful-booker.herokuapp.com",
-},
+  },
+  /*env: {
+    API_BASE_URL: "https://reqres.in",
+    BOOKER_API_URL: "https://restful-booker.herokuapp.com",
+  },*/
 });

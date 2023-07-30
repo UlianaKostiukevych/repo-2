@@ -49,6 +49,16 @@ describe("Demoqa test suite - WEB Tables", () => {
   });
 });
 
+function fillUserForm(userData_1) {
+  cy.get("#firstName").clear().type(userData_1.randomFirstName);
+  cy.get("#lastName").clear().type(userData_1.randomLastName);
+  cy.get("#userEmail").clear().type(userData_1.randomEmail);
+  cy.get("#age").clear().type(userData_1.randomAge);
+  cy.get("#salary").clear().type(userData_1.randomSalary);
+  cy.get("#department").clear().type(userData_1.randomDepartment);
+  cy.get("#submit").click();
+}
+
 function returnUserData() {
   return {
     randomFirstName: faker.person.firstName(),
@@ -64,16 +74,6 @@ function returnUserData() {
     }),
     randomDepartment: faker.person.jobArea(),
   };
-}
-
-function fillUserForm(userData_1) {
-  cy.get("#firstName").clear().type(userData_1.randomFirstName);
-  cy.get("#lastName").clear().type(userData_1.randomLastName);
-  cy.get("#userEmail").clear().type(userData_1.randomEmail);
-  cy.get("#age").clear().type(userData_1.randomAge);
-  cy.get("#salary").clear().type(userData_1.randomSalary);
-  cy.get("#department").clear().type(userData_1.randomDepartment);
-  cy.get("#submit").click();
 }
 
 function verifyUserForm(userData_1) {
