@@ -5,3 +5,6 @@ cypress/videos/
 cypress/screenshots/
 cypress/downloads/
 contacts/
+tsconfig.json
+usefull/
+support/
