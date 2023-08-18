@@ -17,8 +17,9 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
   },
-  /*env: {
-    API_BASE_URL: "https://reqres.in",
-    BOOKER_API_URL: "https://restful-booker.herokuapp.com",
-  },*/
+
+  env: {
+    //API_BASE_URL: "https://reqres.in",
+    API_BASE_URL: "https://restful-booker.herokuapp.com",
+  },
 });
